@@ -4,3 +4,6 @@
 
 layout: home
 ---
+
+
+<p>{% render_time page rendered at: %}</p>
