@@ -1,34 +1,34 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
-# Hello! This is where you manage which Jekyll version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+
+# git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+
+gem 'github-pages'
+
+# CVE-2021-28834 see https://github.com/advisories/GHSA-52p9-v744-mwjj
+gem "kramdown", "~> 2.3", ">= 2.3.1"
+
+# CVE-2021-28965 see https://github.com/advisories/GHSA-8cr8-4vfw-mr7h
+
+gem "rexml", ">= 3.2.5"
+
+# https://github.com/github/cmark-gfm/security/advisories/GHSA-mc3g-88wq-6f4x
+# gem "commonmarker", ">= 0.23.4"
 #
-#     bundle exec jekyll serve
+# but disabled as otherwise seeing this error locally:
+# Bundler could not find compatible versions for gem "commonmarker":
+#  In Gemfile:
+#    commonmarker (>= 0.23.4)
 #
-# This will help ensure the proper Jekyll version is running.
-# Happy Jekylling!
+#    github-pages was resolved to 214, which depends on
+#      jekyll-commonmark-ghpages (= 0.1.6) was resolved to 0.1.6, which depends on
+#        commonmarker (~> 0.17.6)
 
-# gem "jekyll", "~> 4.2.0"  # disabled per https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site
-gem "github-pages", "~> 214", group: :jekyll_plugins # instead of above gem, this was added
-
-
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima", "~> 2.5"
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
-# If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
+  gem 'jekyll-archives'
+#  gem 'jekyll-paginate'
 end
-
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
-platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", "~> 1.2"
-  gem "tzinfo-data"
-end
-
-# Performance-booster for watching directories on Windows
-gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-
+# gem "jekyll", "~> 3.9"
